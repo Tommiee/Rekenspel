@@ -1,0 +1,45 @@
+body{
+  background-color: #224466;
+  text-color: white;
+}
+
+#container{
+  background-color: #113355;
+  width: 800px;
+  height: 450px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr;
+  grid-template-rows:  1fr 1fr 1fr;
+  border: 2px black dotted;
+}
+
+#problem{
+  grid-column: 2/3;
+  grid-row: 1;
+  background-color: #112244;
+}
+
+#level{
+  grid-column: 3/4;
+  grid-row:1;
+  background-color: #112244;
+}
+
+#answer{
+  grid-column: 2/3;
+  grid-row: 2;
+  background-color: #112244;
+}
+
+#feedback{
+  grid-column: 2/3;
+  grid-row: 3;
+  background-color: #112244;
+}
+
+#score{
+  grid-column: 3/4;
+  grid-row: 2;
+  background-color: #112244;
+}

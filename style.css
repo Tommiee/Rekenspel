@@ -18,6 +18,9 @@ body{
   grid-column: 2/3;
   grid-row: 1;
   background-color: #112244;
+  text-align: center;
+  font-size: 80px;
+  color: white;
 }
 
 #level{

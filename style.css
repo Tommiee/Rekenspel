@@ -1,6 +1,7 @@
 body{
   background-color: #224466;
   text-color: white;
+  font-size: 80px;
 }
 
 #container{
@@ -19,7 +20,6 @@ body{
   grid-row: 1;
   background-color: #112244;
   text-align: center;
-  font-size: 80px;
   color: white;
 }
 

@@ -7,16 +7,17 @@ const level = document.getElementById('level');
 let point = 0;
 let lvlup = 0;
 let lvl = 1;
-let prob1, prob2, correct;
+let prob1, prob2, prob3, correct1, correct2;
 
 getQuestion();
 
 document.addEventListener('keydown',(e)=>{
   if(e.keyCode == 13){
     let inp = input.value;
+    input.value = null;
     switch (lvl) {
       case 1:
-        if(inp == correct){
+        if(inp == correct1){
           checkAns(true);
         } else {
           checkAns(false);
@@ -29,25 +30,68 @@ document.addEventListener('keydown',(e)=>{
           checkAns(false);
         }
       break;
+      case 3:
+        if(inp == correct2){
+          checkAns(true);
+        } else {
+          checkAns(false);
+        }
+      break;
+      case 4:
+        if(inp == prob3){
+          checkAns(true);
+        } else {
+          checkAns(false);
+        }
+      break;
     }
   }
 })
 
-function getNumber(){
-  return Math.floor(Math.random()*9)+1;
+function getNumber(l){
+  switch (l) {
+    case 1:
+        return Math.floor(Math.random()*9)+1;
+      break;
+    case 2:
+        return Math.floor(Math.random()*9)+1;
+      break;
+    case 3:
+        return Math.floor(Math.random()*9)+1;
+      break;
+    case 4:
+        return Math.floor(Math.random()*9)+1;
+      break;
+    default:
+      console.log("Error");
+    break;
+  }
+
 }
 
 function getQuestion(){
-  prob1 = getNumber();
-  prob2 = getNumber();
-  correct = prob1 * prob2;
-  console.log(prob1 + "x" + prob2 + "=" + correct);
+  prob1 = getNumber(lvl);
+  prob2 = getNumber(lvl);
+  prob3 = getNumber(lvl);
+  correct1 = prob1 * prob2;
+  correct2 = prob1 + (prob2 * prob3);
+  if(lvl == 1 || lvl == 2){
+    console.log(prob1 + "x" + prob2 + "=" + correct1);
+  } else {
+    console.log(prob1 + "+" + prob2 + "x" + prob3 + "=" + correct2);
+  }
   switch (lvl) {
     case 1:
       problem.innerHTML = prob1 + "x" + prob2 + "=" + "?";
     break;
     case 2:
-      problem.innerHTML = prob1 + "x" + "?" + "=" + correct;
+      problem.innerHTML = prob1 + "x" + "?" + "=" + correct1;
+    break;
+    case 3:
+      problem.innerHTML = prob1 + "+" + prob2 + "x" + prob3 + "=" + "?";
+    break;
+    case 4:
+      problem.innerHTML = prob1 + "+" + prob2 + "x" + "?" + "=" + correct2;
     break;
   }
 }
@@ -58,7 +102,6 @@ function checkAns(c){
     feedback.style.color = "green";
     point++;
     lvlup++;
-    console.log(lvlup);
     if(lvlup >= 5){
       if(lvl < 4){
         lvl++;

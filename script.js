@@ -8,6 +8,15 @@ let point = 0;
 let lvlup = 0;
 let lvl = 1;
 let prob1, prob2, prob3, correct1, correct2;
+var timeleft = 10;
+var Timer = setInterval(function(){
+  document.getElementById("progressBar").value = 10 - --timeleft;
+  if(timeleft <= 0)
+    clearInterval(Timer);
+  if(document.getElementById("progressBar").value >= 10){
+    window.open("gameover.html", "_self");
+  }
+},1000);
 
 getQuestion();
 

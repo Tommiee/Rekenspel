@@ -46,3 +46,13 @@ body{
   grid-row: 2;
   background-color: #112244;
 }
+
+#timer{
+  grid-column: 3/4;
+  grid row: 3;
+  background-color: #112244;
+}
+#progressBar{
+  width: 250px;
+  height: 20px;
+}

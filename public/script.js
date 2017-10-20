@@ -1,5 +1,6 @@
 const problem = document.getElementById('problem');
 const input = document.getElementById('input');
+const answer = document.getElementById('answer');
 const feedback = document.getElementById('feedback');
 const score = document.getElementById('score');
 const level = document.getElementById('level');
@@ -14,7 +15,9 @@ var Timer = setInterval(function(){
   if(timeleft <= 0)
     clearInterval(Timer);
   if(document.getElementById("progressBar").value >= 10){
-    window.open("gameover.html", "_self");
+      problem.innerHTML = "Tijd is op";
+      answer.innerHTML = '<INPUT TYPE="button" onClick="history.go(0)" VALUE="Opnieuw spelen">';
+      feedback.innerHTML = '';
   }
 },1000);
 
